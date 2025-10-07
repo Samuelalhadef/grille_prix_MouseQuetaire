@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grille Tarifaire - Développement Web</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .pricing-content {
+            padding: 40px;
+        }
+        
+        .service-section {
+            margin-bottom: 50px;
+        }
+        
+        .service-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .pricing-table thead {
+            background: #f8f9fa;
+        }
+        
+        .pricing-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .pricing-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .pricing-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+        
+        .check {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .cross {
+            color: #dc3545;
+        }
+        
+        .optional {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .note strong {
+            color: #856404;
+        }
+        
+        .legend {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .pricing-table {
+                font-size: 0.9em;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .pricing-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💼 Grille Tarifaire</h1>
+            <p>Services de Développement Web - Tarifs Étudiant Freelance</p>
+        </div>
+        
+        <div class="pricing-content">
+            
+            <!-- SITES VITRINE / LANDING PAGES -->
+            <div class="service-section">
+                <div class="service-title">🌐 Sites Vitrine & Landing Pages</div>
+                
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Type de projet</th>
+                            <th>Description</th>
+                            <th>Prix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Landing Page Simple</strong></td>
+                            <td>1 page, design moderne, responsive, formulaire de contact</td>
+                            <td class="price">150€ - 300€</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Site Vitrine (3-5 pages)</strong></td>
+                            <td>Accueil, À propos, Services, Contact, Blog optionnel</td>
+                            <td class="price">300€ - 600€</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Site Vitrine (6-10 pages)</strong></td>
+                            <td>Site complet avec plusieurs sections et fonctionnalités</td>
+                            <td class="price">600€ - 1000€</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Services inclus</th>
+                            <th style="text-align: center;">Landing Page</th>
+                            <th style="text-align: center;">Site 3-5 pages</th>
+                            <th style="text-align: center;">Site 6-10 pages</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maquette/Design personnalisé</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Développement responsive (mobile, tablette, desktop)</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>SEO de base (meta tags, structure)</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Formulaire de contact fonctionnel</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Formation client (utilisation du site)</td>
+                            <td style="text-align: center;" class="optional">△</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Intégration Google Analytics</td>
+                            <td style="text-align: center;" class="optional">+30€</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Mise en ligne et configuration hébergement</td>
+                            <td style="text-align: center;" class="optional">+50€</td>
+                            <td style="text-align: center;" class="optional">+50€</td>
+                            <td style="text-align: center;" class="optional">+50€</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- E-COMMERCE -->
+            <div class="service-section">
+                <div class="service-title">🛒 Sites E-commerce</div>
+                
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Type de projet</th>
+                            <th>Description</th>
+                            <th>Prix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>E-commerce Basique</strong></td>
+                            <td>Jusqu'à 20 produits, paiement en ligne, gestion stock basique</td>
+                            <td class="price">800€ - 1200€</td>
+                        </tr>
+                        <tr>
+                            <td><strong>E-commerce Standard</strong></td>
+                            <td>Jusqu'à 50 produits, catégories, filtres, comptes clients</td>
+                            <td class="price">1200€ - 1800€</td>
+                        </tr>
+                        <tr>
+                            <td><strong>E-commerce Avancé</strong></td>
+                            <td>Produits illimités, fonctionnalités avancées, multi-devises</td>
+                            <td class="price">1800€ - 3000€+</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Services inclus</th>
+                            <th style="text-align: center;">Basique</th>
+                            <th style="text-align: center;">Standard</th>
+                            <th style="text-align: center;">Avancé</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Design personnalisé & responsive</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Intégration paiement (Stripe/PayPal)</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Gestion produits et stock</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Panier et processus de commande</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Système de comptes clients</td>
+                            <td style="text-align: center;" class="cross">✗</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Codes promo et réductions</td>
+                            <td style="text-align: center;" class="cross">✗</td>
+                            <td style="text-align: center;" class="optional">+100€</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Gestion avancée (avis, wishlist, etc.)</td>
+                            <td style="text-align: center;" class="cross">✗</td>
+                            <td style="text-align: center;" class="cross">✗</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Formation complète gestion boutique</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>SEO e-commerce optimisé</td>
+                            <td style="text-align: center;" class="optional">△</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                            <td style="text-align: center;" class="check">✓</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- APPLICATIONS WEB -->
+            <div class="service-section">
+                <div class="service-title">⚡ Applications Web Personnalisées</div>
+                
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Type de projet</th>
+                            <th>Description</th>
+                            <th>Prix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Application Simple</strong></td>
+                            <td>CRUD basique, dashboard simple, authentification</td>
+                            <td class="price">1000€ - 1500€</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Application Standard</strong></td>
+                            <td>Fonctionnalités multiples, API, base de données complexe</td>
+                            <td class="price">1500€ - 2500€</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Application Avancée</strong></td>
+                            <td>Projet complexe, temps réel, intégrations tierces</td>
+                            <td class="price">2500€ - 5000€+</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="note">
+                    <strong>💡 Note :</strong> Les applications web personnalisées sont évaluées au cas par cas. Un devis détaillé sera fourni après analyse de vos besoins spécifiques. Les prix incluent le développement frontend et backend, la base de données, et la documentation technique.
+                </div>
+            </div>
+
+            <!-- REFONTE -->
+            <div class="service-section">
+                <div class="service-title">🔄 Refonte de Sites Existants</div>
+                
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Type de refonte</th>
+                            <th>Description</th>
+                            <th>Prix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Refonte Design</strong></td>
+                            <td>Nouveau design, conservation de la structure existante</td>
+                            <td class="price">50-70% du prix d'un site neuf</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Refonte Complète</strong></td>
+                            <td>Nouveau design + nouvelle structure + nouvelles fonctionnalités</td>
+                            <td class="price">70-90% du prix d'un site neuf</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Migration de Plateforme</strong></td>
+                            <td>Changement de technologie (ex: WordPress vers React)</td>
+                            <td class="price">À partir de 500€</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Optimisation Performance</strong></td>
+                            <td>Amélioration vitesse, SEO technique, accessibilité</td>
+                            <td class="price">200€ - 500€</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- MAINTENANCE -->
+            <div class="service-section">
+                <div class="service-title">🛠️ Maintenance & Support</div>
+                
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Formule</th>
+                            <th>Services inclus</th>
+                            <th>Prix/mois</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Maintenance Basique</strong></td>
+                            <td>
+                                • Sauvegardes hebdomadaires<br>
+                                • Mises à jour sécurité<br>
+                                • Support email (48h)<br>
+                                • 1h de modifications/mois
+                            </td>
+                            <td class="price">50€/mois</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Maintenance Standard</strong></td>
+                            <td>
+                                • Sauvegardes quotidiennes<br>
+                                • Mises à jour + monitoring<br>
+                                • Support prioritaire (24h)<br>
+                                • 3h de modifications/mois<br>
+                                • Rapport mensuel
+                            </td>
+                            <td class="price">100€/mois</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Maintenance Premium</strong></td>
+                            <td>
+                                • Tout de la formule Standard<br>
+                                • Support urgent (12h)<br>
+                                • 5h de modifications/mois<br>
+                                • Optimisations continues<br>
+                                • Hébergement inclus
+                            </td>
+                            <td class="price">150€/mois</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Heure supplémentaire</strong></td>
+                            <td>Développement ou modifications au-delà du forfait</td>
+                            <td class="price">25€/heure</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- SERVICES ADDITIONNELS -->
+            <div class="service-section">
+                <div class="service-title">➕ Services Additionnels</div>
+                
+                <table class="pricing-table">
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Description</th>
+                            <th>Prix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Hébergement & nom de domaine</strong></td>
+                            <td>Configuration et gestion première année</td>
+                            <td class="price">50€ (one-time)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Configuration emails professionnels</strong></td>
+                            <td>Setup adresses email @votredomaine.com</td>
+                            <td class="price">30€</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Intégration réseaux sociaux</strong></td>
+                            <td>Liens, widgets, flux social</td>
+                            <td class="price">50€</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Blog/Système de contenu</strong></td>
+                            <td>CMS intégré pour gérer articles</td>
+                            <td class="price">150€ - 300€</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Multilingue</strong></td>
+                            <td>Par langue supplémentaire</td>
+                            <td class="price">200€/langue</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Formation approfondie</strong></td>
+                            <td>Session supplémentaire (2h)</td>
+                            <td class="price">80€</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Urgence (délai < 7 jours)</strong></td>
+                            <td>Supplément rush</td>
+                            <td class="price">+30% du projet</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- LÉGENDE -->
+            <div class="legend">
+                <div class="legend-item">
+                    <span class="check">✓</span>
+                    <span>Inclus</span>
+                </div>
+                <div class="legend-item">
+                    <span class="cross">✗</span>
+                    <span>Non inclus</span>
+                </div>
+                <div class="legend-item">
+                    <span class="optional">△</span>
+                    <span>Basique/Optionnel</span>
+                </div>
+                <div class="legend-item">
+                    <span class="optional">+XX€</span>
+                    <span>Supplément</span>
+                </div>
+            </div>
+
+            <!-- NOTES FINALES -->
+            <div class="note">
+                <strong>📋 Conditions générales :</strong><br>
+                • Devis gratuit et sans engagement<br>
+                • Acompte de 30% à la commande<br>
+                • Paiements échelonnés possibles<br>
+                • 2 révisions incluses par projet<br>
+                • Révisions supplémentaires : 25€/heure<br>
+                • Délais : variables selon la complexité (généralement 2-6 semaines)<br>
+                • Les prix s'entendent hors hébergement et nom de domaine (sauf mention contraire)
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
